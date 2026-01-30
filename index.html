@@ -1,0 +1,28 @@
+<div class="top-nav">
+    <div style="display: flex; justify-content: space-between; width: 95%; align-items: center;">
+        <h2 onclick="showHome()" style="color:var(--accent); cursor:pointer; margin:0;">VELOXIS</h2>
+        
+        <div class="category-bar">
+            <span onclick="loadCategory(28)">Action</span>
+            <span onclick="loadCategory(35)">Comedy</span>
+            <span onclick="loadCategory(27)">Horror</span>
+        </div>
+
+        <div class="search-trigger" onclick="toggleSearch()">🔍</div>
+    </div>
+    
+    <input type="text" id="epSearch" placeholder="Search movies or shows...">
+    <div id="searchResults" class="results-box"></div>
+</div>
+
+<div id="homePage">
+    <div id="hero" class="hero">...</div>
+    <h2 class="row-title">Trending Now</h2>
+    <div id="trendingRow" class="poster-row"></div>
+    
+    <h2 class="row-title">Action Movies</h2>
+    <div id="actionRow" class="poster-row"></div>
+    
+    <h2 class="row-title">Scary Night</h2>
+    <div id="horrorRow" class="poster-row"></div>
+</div>
