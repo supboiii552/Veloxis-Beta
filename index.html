@@ -1,28 +1,73 @@
-<div class="top-nav">
-    <div style="display: flex; justify-content: space-between; width: 95%; align-items: center;">
-        <h2 onclick="showHome()" style="color:var(--accent); cursor:pointer; margin:0;">VELOXIS</h2>
-        
-        <div class="category-bar">
-            <span onclick="loadCategory(28)">Action</span>
-            <span onclick="loadCategory(35)">Comedy</span>
-            <span onclick="loadCategory(27)">Horror</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Veloxis | Stream</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="veloxis-bg"></div>
+
+    <nav class="top-nav">
+        <div class="nav-left">
+            <img src="src/images/logo.png" alt="Veloxis" class="main-logo" onclick="showHome()">
         </div>
 
-        <div class="search-trigger" onclick="toggleSearch()">🔍</div>
-    </div>
-    
-    <input type="text" id="epSearch" placeholder="Search movies or shows...">
-    <div id="searchResults" class="results-box"></div>
-</div>
+        <div class="nav-center category-bar">
+            <span onclick="loadDiscovery('movie', 28)">Action</span>
+            <span onclick="loadDiscovery('movie', 35)">Comedy</span>
+            <span onclick="loadDiscovery('movie', 27)">Horror</span>
+        </div>
 
-<div id="homePage">
-    <div id="hero" class="hero">...</div>
-    <h2 class="row-title">Trending Now</h2>
-    <div id="trendingRow" class="poster-row"></div>
-    
-    <h2 class="row-title">Action Movies</h2>
-    <div id="actionRow" class="poster-row"></div>
-    
-    <h2 class="row-title">Scary Night</h2>
-    <div id="horrorRow" class="poster-row"></div>
-</div>
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" id="epSearch" placeholder="Search movies or shows..." class="sf-input">
+                <span class="search-icon" onclick="toggleSearch()">🔍</span>
+            </div>
+            <div id="searchResults" class="results-box"></div>
+        </div>
+    </nav>
+
+    <main id="homePage" class="view active">
+        <section id="hero" class="hero-banner">
+            <div class="hero-content">
+                <h1 id="heroTitle"></h1>
+                <p id="heroDesc"></p>
+                <div class="hero-btns">
+                    <button id="heroPlayBtn" class="play-btn">▶ Play</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="contentRows">
+            </div>
+    </main>
+
+    <main id="playerView" class="view">
+        <div class="player-header">
+            <button onclick="showHome()" class="back-btn">← Browse</button>
+            <div class="player-controls">
+                <select id="seasonSelect"><option value="">Season</option></select>
+                <select id="episodeSelect" disabled><option value="">Episode</option></select>
+                <button id="fullscreenBtn">⛶ THEATER</button>
+            </div>
+        </div>
+
+        <div id="videoWrapper">
+            <div id="videoContainer"></div>
+        </div>
+
+        <div class="next-footer">
+            <button id="nextBtn">NEXT EPISODE →</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
